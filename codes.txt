@@ -1,0 +1,64 @@
+lat=[27.125:0.25:28.125]';
+lon=[88.125:0.25:89.875]';
+[m,n] = ndgrid(lat,lon);
+Z = [m(:),n(:)];
+%%
+s=readtable('PrecipData.txt');
+PrecipData = table2array(s);
+save('PrecipData','PrecipData')
+%% Sikkim Grids
+for i=1:40
+   cindex(i,1)=find(grid_india(:,1)==Z(i,1) && grid_india(:,2)==Z(i,2)) ;
+end
+
+%%
+grid_india=[PrecipData(2,4:4644)',PrecipData(1,4:4644)'];
+>> load('PrecipData.mat')
+>> for i=1:40
+   cindex(i,1)=find(grid_india(:,1)==Z(i,1) && grid_india(:,2)==Z(i,2)) ;
+end
+Unrecognized function or variable 'grid_india'.
+ 
+>> grid_india=[PrecipData(2,4:4644)',PrecipData(1,4:4644)'];
+>> for i=1:40
+   cindex(i,1)=find(grid_india(:,1)==Z(i,1) && grid_india(:,2)==Z(i,2)) ;
+end
+Unrecognized function or variable 'Z'.
+ 
+>> lat=[27.125:0.25:28.125]';
+lon=[88.125:0.25:89.875]';
+[m,n] = ndgrid(lat,lon);
+Z = [m(:),n(:)];
+>> for i=1:40
+   cindex(i,1)=find(grid_india(:,1)==Z(i,1) && grid_india(:,2)==Z(i,2)) ;
+end
+Operands to the logical and (&&) and or (||) operators must be convertible to logical scalar values.
+ 
+>> load('TMaxData.mat')
+Error using load
+Unable to read MAT-file E:\India\ACCESS-CM2\historical\TMaxData.mat. File might be corrupt.
+ 
+>> load('TMinData.mat')
+>> addpath('historical')
+Warning: Name is nonexistent or not a directory: E:\India\ACCESS-CM2\historical\historical 
+> In path (line 109)
+In addpath (line 86) 
+>> dlmread('TMaxData.mat')
+Error using dlmread (line 147)
+Mismatch between file and format character vector.
+Trouble reading 'Numeric' field from file (row number 1, field number 1) ==> MATLAB 5.0 MAT-file,
+Platform: PCWIN64, Created on: Fri Aug  5 19:41:23 2022
+         IM        xœìË¡\n
+ 
+>> for i=1:length(z)
+   cindex(i,1)=find(grid_india(:,1)==z(i,1) && grid_india(:,2)==z(i,2)) ;
+end
+Operands to the logical and (&&) and or (||) operators must be convertible to logical scalar values.
+ 
+>> save('Sikkim_grids','z')
+>> save('Sikkim_grids','z')
+>> load('Sikkim_grids.mat', 'z')
+>> load('Sikkim_grids.mat', 'z')
+>> sikkim_rainfall_hist=PrecipData(3:end,z(:,3));
+>>  save('sikkim_rainfall_hist','sikkim_rainfall_hist')
+>> save('sikkim_rainfall_hist','sikkim_rainfall_hist')
